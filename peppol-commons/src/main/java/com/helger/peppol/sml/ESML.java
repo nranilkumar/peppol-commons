@@ -31,18 +31,54 @@ import com.helger.commons.type.ObjectType;
  * <ul>
  * <li>DIGIT_PRODUCTION - DIGIT production URL - valid from June 9th, 2015
  * <li>DIGIT_TEST - DIGIT test URL - valid from June 9th, 2015
- * <li>DEVELOPMENT_LOCAL - used for development environment assuming the
- * management application is running on localhost in the ROOT context!</li>
+ * <li>PEPPOL_PRODUCTION - valid from March 1st, 2026
+ * <li>PEPPOL_TEST - valid from March 1st, 2026
+ * <li>DEVELOPMENT_LOCAL - used for development environment assuming the management application is
+ * running on localhost in the ROOT context!</li>
  * </ul>
  *
  * @author Philip Helger
  */
 public enum ESML implements ISMLInfo
 {
-  /** DIGIT production URL - valid from June 9th, 2015 */
-  DIGIT_PRODUCTION ("digitprod", "SML", "edelivery.tech.ec.europa.eu.", "https://edelivery.tech.ec.europa.eu/edelivery-sml", true),
-  /** DIGIT test URL - valid from June 9th, 2015 */
-  DIGIT_TEST ("digittest", "SMK", "acc.edelivery.tech.ec.europa.eu.", "https://acc.edelivery.tech.ec.europa.eu/edelivery-sml", true),
+  /**
+   * DIGIT production URL - valid from June 9th, 2015
+   *
+   * @deprecated Use {@link #PEPPOL_PRODUCTION} instead
+   */
+  @Deprecated (forRemoval = true, since = "12.4.0")
+  DIGIT_PRODUCTION("digitprod",
+                   "EC SML",
+                   "edelivery.tech.ec.europa.eu.",
+                   "https://edelivery.tech.ec.europa.eu/edelivery-sml",
+                   true),
+
+  /**
+   * DIGIT test URL - valid from June 9th, 2015.
+   *
+   * @deprecated Use {@link #PEPPOL_TEST} instead
+   */
+  @Deprecated (forRemoval = true, since = "12.4.0")
+  DIGIT_TEST("digittest",
+             "EC SMK",
+             "acc.edelivery.tech.ec.europa.eu.",
+             "https://acc.edelivery.tech.ec.europa.eu/edelivery-sml",
+             true),
+
+  /** Peppol production URL - valid from March 19th, 2026 */
+  PEPPOL_PRODUCTION ("peppolprod",
+                     "Peppol SML",
+                     "participant.sml.prod.tech.peppol.org.",
+                     "https://api.sml.prod.tech.peppol.org/edelivery-sml",
+                     true),
+
+  /** Peppol test URL - valid from March 19th, 2026 */
+  PEPPOL_TEST ("peppoltest",
+               "Peppol T-SML",
+               "participant.sml.test.tech.peppol.org.",
+               "https://api.sml.test.tech.peppol.org/edelivery-sml",
+               true),
+
   /** http://localhost:8080 */
   DEVELOPMENT_LOCAL ("local", "Development", "smj.peppolcentral.org.", "http://localhost:8080", false);
 
